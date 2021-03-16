@@ -1,5 +1,23 @@
 import React, { useState } from "react";
-import { Card, Text, Icon } from "@ui5/webcomponents-react";
+import {
+  Avatar,
+  Card,
+  Text,
+  ShellBar,
+  ShellBarItem,
+  List,
+  StandardListItem,
+  ValueState,
+  ProgressIndicator,
+  Title,
+  TitleLevel,
+  FlexBox,
+  FlexBoxJustifyContent,
+  FlexBoxWrap,
+  FlexBoxDirection,
+  AnalyticalTable,
+  Icon,
+} from "@ui5/webcomponents-react";
 import { spacing } from "@ui5/webcomponents-react-base";
 import { BarChart, LineChart } from "@ui5/webcomponents-react-charts";
 import "@ui5/webcomponents-icons/dist/line-chart.js";
@@ -8,7 +26,7 @@ import "@ui5/webcomponents-icons/dist/horizontal-bar-chart.js";
 export function MyApp() {
   const [toggleCharts, setToggleCharts] = useState("lineChart");
   const [loading, setLoading] = useState(false);
-  const contentTiltle =
+  const contentTitle =
     toggleCharts === "lineChart" ? "Line Chart" : "Bar Chart";
   const switchToChart =
     toggleCharts === "lineChart" ? "Bar Chart" : "Line Chart";
@@ -59,6 +77,11 @@ export function MyApp() {
   ];
   return (
     <div>
+      <ShellBar
+        logo={<img src="" />}
+        profile={<Avatar image="" />}
+        primaryTitle="My App"
+      />
       <Card
         avatar={
           <Icon
@@ -75,9 +98,7 @@ export function MyApp() {
         onHeaderClick={handleHeaderClick}
         subheading={`Click here to switch to ${switchToChart}`}
       >
-        <Text style={spacing.sapUiContentPadding}>
-          This is the content area of the Card
-        </Text>
+        <Text style={spacing.sapUiContentPadding}>{contentTitle}</Text>
         {toggleCharts === "lineChart" ? (
           <LineChart
             dimensions={[{ accessor: "month" }]}
