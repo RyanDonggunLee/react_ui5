@@ -78,10 +78,12 @@ export function MyApp() {
   return (
     <div>
       <ShellBar
-        logo={<img src="" />}
-        profile={<Avatar image="" />}
+        logo={<img src="reactLogo.png" />}
+        profile={<Avatar image="profilePictureExample.png" />}
         primaryTitle="My App"
-      />
+      >
+        <ShellBarItem icon="add" text="Add" />
+      </ShellBar>
       <Card
         avatar={
           <Icon
@@ -114,6 +116,21 @@ export function MyApp() {
             loading={loading}
           />
         )}
+      </Card>
+      <Card
+        heading="progress"
+        subheading="List"
+        style={{ width: "300px" }}
+        avatar={<Icon name="list" />}
+      >
+        <List>
+          <StandardListItem info="finished" infoState={ValueState.Success}>
+            Activity 1
+          </StandardListItem>
+          <StandardListItem info="fail" infoState={ValueState.Error}>
+            Activity 2
+          </StandardListItem>
+        </List>
       </Card>
     </div>
   );
